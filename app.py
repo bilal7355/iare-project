@@ -9,7 +9,7 @@ from langchain.prompts import PromptTemplate
 
 app = Flask(__name__)
 
-GROQ_API_KEY = "REMOVED"
+GROQ_API_KEY = os.env.get("GROQ_API_KEY")
 chat_groq = ChatGroq(api_key=GROQ_API_KEY,model='llama-3.3-70b-versatile')
 
 memory = ConversationBufferWindowMemory(k=5)
